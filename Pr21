@@ -1,0 +1,19 @@
+
+final class FinalClass {
+  int x;
+
+  public FinalClass(int x) {
+    this.x = x;
+  }
+
+  void display() {
+    System.out.println("Value of x: " + x);
+  }
+}
+
+public class Main {
+  public static void main(String[] args) {
+    FinalClass obj = new FinalClass(10);
+    obj.display();
+  }
+}
