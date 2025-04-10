@@ -1,41 +1,38 @@
 
-import java.util.Scanner;
-
 class InsufficientFundsException extends Exception {
   public InsufficientFundsException(String message) {
     super(message);
   }
 }
 
-class BankAccount {
-  private double balance;
+class Account {
+  double balance;
 
-  public BankAccount(double initialBalance) {
-    this.balance = initialBalance;
+  public Account(double balance) {
+    this.balance = balance;
   }
 
-  public void deposit(double amount) {
+  void deposit(double amount) {
     balance += amount;
-    System.out.println("Deposited: Rs " + amount);
   }
 
-  public void withdraw(double amount) throws InsufficientFundsException {
+  void withdraw(double amount) throws InsufficientFundsException {
     if (amount > balance) {
       throw new InsufficientFundsException("Not Sufficient Fund");
     }
     balance -= amount;
-    System.out.println("Withdrew: Rs " + amount);
   }
 
-  public double getBalance() {
+  double getBalance() {
     return balance;
   }
 }
 
-public class BankingApplication {
+public class Main {
   public static void main(String[] args) {
-    BankAccount account = new BankAccount(25000);
-    Scanner scanner = new Scanner(System.in);
+    Account account = new Account(0);
+    account.deposit(25000);
+
     try {
       account.withdraw(20000);
       account.withdraw(4000);
@@ -43,7 +40,7 @@ public class BankingApplication {
     } catch (InsufficientFundsException e) {
       System.out.println(e.getMessage());
     }
-    System.out.println("Current Balance: Rs " + account.getBalance());
-    scanner.close();
+
+    System.out.println("Remaining balance: " + account.getBalance());
   }
 }
