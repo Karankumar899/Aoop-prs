@@ -8,13 +8,12 @@ import java.io.IOException;
 public class FileReadWrite {
   public static void main(String[] args) {
     String filePath = "example.txt";
-
     try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
       writer.write("Hello, World!");
       writer.newLine();
       writer.write("This is a sample text file.");
     } catch (IOException e) {
-      e.printStackTrace();
+      System.out.println("An error occurred while writing to the file.");
     }
 
     try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
@@ -23,7 +22,7 @@ public class FileReadWrite {
         System.out.println(line);
       }
     } catch (IOException e) {
-      e.printStackTrace();
+      System.out.println("An error occurred while reading from the file.");
     }
   }
 }
