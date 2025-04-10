@@ -5,7 +5,7 @@ class DivideByZeroException extends Exception {
   }
 }
 
-public class Division {
+public class Main {
   public static void main(String[] args) {
     try {
       divide(10, 0);
@@ -14,10 +14,11 @@ public class Division {
     }
   }
 
-  public static void divide(int numerator, int denominator) throws DivideByZeroException {
-    if (denominator == 0) {
-      throw new DivideByZeroException("Error: Division by zero is not allowed.");
+  static void divide(int num1, int num2) throws DivideByZeroException {
+    if (num2 == 0) {
+      throw new DivideByZeroException("Cannot divide by zero");
     }
-    System.out.println("Result: " + (numerator / denominator));
+    int result = num1 / num2;
+    System.out.println("Result: " + result);
   }
 }
