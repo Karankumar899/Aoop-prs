@@ -5,23 +5,23 @@ class Animal {
   }
 }
 
-class Dog extends Animal {
+class Mammal extends Animal {
+  void walk() {
+    System.out.println("Walking...");
+  }
+}
+
+class Dog extends Mammal {
   void bark() {
     System.out.println("Barking...");
   }
 }
 
-class Puppy extends Dog {
-  void weep() {
-    System.out.println("Weeping...");
-  }
-}
-
-public class TestInheritance {
+public class Main {
   public static void main(String[] args) {
-    Puppy puppy = new Puppy();
-    puppy.eat();
-    puppy.bark();
-    puppy.weep();
+    Dog dog = new Dog();
+    dog.eat();
+    dog.walk();
+    dog.bark();
   }
 }
